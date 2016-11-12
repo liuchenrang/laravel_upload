@@ -1,0 +1,15 @@
+{
+    "name": "ezapp/upload",
+    "description": "upload for lavarel",
+    "require": {
+        "intervention/image": "^2.3",
+        "ramsey/uuid":"^2.9",
+        "laravelcollective/htm":"^5.2"
+    },
+    "authors": [
+        {
+            "name": "xing huo",
+            "email": "877702999@qq.com"
+        }
+    ]
+}
