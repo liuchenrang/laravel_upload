@@ -12,15 +12,11 @@ class UploadServiceProvider  extends ServiceProvider
 {
     protected $namespace = 'EzApp\Upload\Http\Conttrollers';
 
-    public function boot(Route $router){
-        parent::boot($router);
-        $this->loadViewsFrom(__DIR__.'/views', 'upload');
-        $this->map($router);
-    }
 
     public function register()
     {
         // TODO: Implement register() method.
+        $this->loadViewsFrom(__DIR__.'/views', 'upload');
 
         $configPath = __DIR__ . '/config/upload.php';
         if (function_exists('config_path')) {
@@ -29,19 +25,13 @@ class UploadServiceProvider  extends ServiceProvider
             $publishPath = base_path('config/upload.php');
         }
         $this->publishes([$configPath => $publishPath], 'config');
-    }
-    public function map(Route $router)
-    {
-        $this->mapWebRoutes($router);
-
-        //
-    }
-    public function mapWebRoutes(Route $router){
-        $router::group([
+        Route::group([
             'namespace'  => $this->namespace,
             'middleware' => ['web']
-        ], function($router) {
+        ], function() {
             require (__DIR__.'/Http/routes.php');
         });
+
     }
+
 }
