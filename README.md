@@ -1,4 +1,5 @@
 # laravel_upload
+app.php
 
 > EzApp\Upload\UploadServiceProvider::class
 
