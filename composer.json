@@ -10,5 +10,11 @@
             "name": "xing huo",
             "email": "877702999@qq.com"
         }
-    ]
+    ],
+     "autoload": {
+
+        "psr-4": {
+            "EzApp\\Upload\\":"src"
+        }
+    },
 }
