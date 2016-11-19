@@ -13,7 +13,7 @@ class UploadServiceProvider  extends ServiceProvider
     protected $namespace = 'EzApp\Upload\Http\Conttrollers';
 
 
-    public function register()
+    public function boot()
     {
         // TODO: Implement register() method.
         $this->loadViewsFrom(__DIR__.'/views', 'upload');
@@ -24,7 +24,7 @@ class UploadServiceProvider  extends ServiceProvider
         } else {
             $publishPath = base_path('config/upload.php');
         }
-        $this->publishes([$configPath => $publishPath], 'config');
+        $this->publishes([$configPath => $publishPath], 'ezapp_upload');
         Route::group([
             'namespace'  => $this->namespace,
             'middleware' => ['web']
