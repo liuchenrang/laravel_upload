@@ -10,7 +10,7 @@ namespace EzApp\Upload\Http\Conttrollers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Image;
-use Rhumsaa\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 
 use EzApp\Upload\Services\UploadService;
 
