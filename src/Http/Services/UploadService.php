@@ -1,5 +1,5 @@
 <?php
-namespace EzApp\Upload\Service;
+namespace EzApp\Upload\Services;
 /**
  * Created by PhpStorm.
  * User: XingHuo

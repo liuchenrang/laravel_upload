@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Image;
 use Rhumsaa\Uuid\Uuid;
 
-use EzApp\Upload\Service\UploadService;
+use EzApp\Upload\Services\UploadService;
 
 class UploadController extends  Controller
 {
