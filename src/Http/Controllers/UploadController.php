@@ -59,7 +59,7 @@ class UploadController extends  Controller
 
         $fileInfo = array(
             'result' => true,
-            'path' => str_replace(base_path(), '', ($fullName)),
+            'path' => str_replace(public_path(), '', ($fullName)),
         );
         return $fileInfo;
     }
@@ -83,7 +83,7 @@ class UploadController extends  Controller
         $file->move($savePath,$saveName);
         $fileInfo = array(
             'result' => true,
-            'path' => str_replace(base_path(), '', ($fullName)),
+            'path' => str_replace(public_path(), '', ($fullName)),
         );
         return $fileInfo;
     }
