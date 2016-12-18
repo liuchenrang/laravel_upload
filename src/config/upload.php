@@ -16,6 +16,7 @@ return [
         'local' => '1',
         'qi_niu' => '2',
     ],
-    'allow_ext' => ['png', 'jpg', 'gif', 'jpeg']
+    'allow_ext' => ['png', 'jpg', 'gif', 'jpeg'],
+    'middleware' => 'upload'
 
 ];

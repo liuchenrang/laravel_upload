@@ -27,7 +27,7 @@ class UploadServiceProvider  extends ServiceProvider
         $this->publishes([$configPath => $publishPath], 'ezapp_upload');
         Route::group([
             'namespace'  => $this->namespace,
-            'middleware' => ['web']
+            'middleware' => ['web',config('upload.middleware')]
         ], function() {
             require (__DIR__.'/Http/routes.php');
         });
