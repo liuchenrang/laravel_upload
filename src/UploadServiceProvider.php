@@ -12,6 +12,11 @@ class UploadServiceProvider  extends ServiceProvider
 {
     protected $namespace = 'EzApp\Upload\Http\Conttrollers';
 
+    public function register()
+    {
+        // TODO: Implement register() method.
+    }
+
 
     public function boot()
     {

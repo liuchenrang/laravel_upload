@@ -58,7 +58,7 @@ class UploadController extends  Controller
         }
 
         $fileInfo = array(
-            'result' => true,
+            'success' => true,
             'path' => str_replace(public_path(), '', ($fullName)),
         );
         return $fileInfo;
