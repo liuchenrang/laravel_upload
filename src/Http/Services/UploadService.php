@@ -6,7 +6,7 @@ namespace EzApp\Upload\Services;
  * Date: 16/6/25
  * Time: 下午7:13
  */
-use Rhumsaa\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 
 class UploadService
 {

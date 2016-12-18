@@ -7,7 +7,7 @@
  */
 Route::any('/upload/image', 'UploadController@image');
 Route::any('/upload/file', 'UploadController@file');
-//Route::get('/upload/form', 'UploadController@form');
+Route::get('/upload/token', 'UploadController@token');
 Route::get('/upload/form', function () {
     return view('upload::form');
 });
