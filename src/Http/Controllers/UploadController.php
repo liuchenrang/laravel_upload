@@ -56,6 +56,7 @@ class UploadController extends  Controller
         return $fileInfo;
     }
     public function token(){
+
         return json_encode(['token'=>csrf_token()]);
     }
 }
