@@ -20,5 +20,5 @@ return [
     'middleware' => '',
     'callback' => '',
     'namespace' => 'EzApp\Upload\Http\Conttrollers',
-
+    'base_path' => public_path('upload'),
 ];
