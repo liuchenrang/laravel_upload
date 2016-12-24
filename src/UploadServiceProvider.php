@@ -32,7 +32,6 @@ class UploadServiceProvider  extends ServiceProvider
         if (config('upload.middleware')) {
             $middle[] = config('upload.middleware');
         }
-
         Route::group([
             'namespace'  => config('upload.namespace'),
             'middleware' => $middle
