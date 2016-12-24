@@ -34,7 +34,7 @@ class UploadServiceProvider  extends ServiceProvider
         }
 
         Route::group([
-            'namespace'  => config('uplaod.namespace'),
+            'namespace'  => config('upload.namespace'),
             'middleware' => $middle
         ], function() {
             require (__DIR__.'/Http/routes.php');
