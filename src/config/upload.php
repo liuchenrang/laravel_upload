@@ -18,5 +18,7 @@ return [
     ],
     'allow_ext' => ['png', 'jpg', 'gif', 'jpeg'],
     'middleware' => '',
-    'callback' => ''
+    'callback' => '',
+    'namespace' => 'EzApp\Upload\Http\Conttrollers',
+
 ];

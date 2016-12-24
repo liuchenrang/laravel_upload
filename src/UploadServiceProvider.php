@@ -10,7 +10,10 @@ use  Illuminate\Support\ServiceProvider;
 use Route;
 class UploadServiceProvider  extends ServiceProvider
 {
-    protected $namespace = 'EzApp\Upload\Http\Conttrollers';
+    public function register()
+    {
+        // TODO: Implement register() method.
+    }
 
 
     public function boot()
@@ -31,7 +34,7 @@ class UploadServiceProvider  extends ServiceProvider
         }
 
         Route::group([
-            'namespace'  => $this->namespace,
+            'namespace'  => config('uplaod.namespace'),
             'middleware' => $middle
         ], function() {
             require (__DIR__.'/Http/routes.php');
