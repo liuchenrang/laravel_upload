@@ -44,7 +44,7 @@ class UploadService
             return $fileInfo;
         }
         is_dir($savePath) || mkdir($savePath, 0700, true);
-        $saveName = $this->getUploadSaveName($extension);
+        $saveName = $this->getUploadSaveName($extension, $uuid);
         $file->move($savePath,$saveName);
         $fullName = $this->getFullPath($savePath,$saveName);
         $sizes = $allowSize[$topic];
@@ -103,9 +103,11 @@ class UploadService
     function getUploadUrlPath($saveServer){
         return "/$saveServer".date('/Y/m/d/');
     }
-    function getUploadSaveName($extName){
-        $uuid4 = Uuid::uuid4();
-        $uuid = strtoupper($uuid4->toString());
+    function getUploadSaveName($extName, $uuid){
+        if (!$uuid) {
+            $uuid4 = Uuid::uuid4();
+            $uuid = strtoupper($uuid4->toString());
+        }
         return $uuid.'.'.trim($extName,'.');
     }
     function getFullPath($savePath,$saveName){
