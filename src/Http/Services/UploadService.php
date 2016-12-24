@@ -65,6 +65,7 @@ class UploadService
             'result' => true,
             'path' => $path
         );
+
         return $fileInfo;
     }
     /**
