@@ -12,7 +12,7 @@ class UploadServiceProvider  extends ServiceProvider
 {
     public function register()
     {
-        // TODO: Implement register() method.
+        // TODO: Implement register().
     }
 
 
@@ -20,7 +20,6 @@ class UploadServiceProvider  extends ServiceProvider
     {
         // TODO: Implement register() method.
         $this->loadViewsFrom(__DIR__.'/views', 'upload');
-
         $configPath = __DIR__ . '/config/upload.php';
         if (function_exists('config_path')) {
             $publishPath = config_path('upload.php');
