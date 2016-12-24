@@ -19,49 +19,17 @@ class UploadController extends  Controller
 
     function image(Request $request , UploadService $uploadService)
     {
-        $uuid4 = Uuid::uuid4();
-        $uuid = strtoupper($uuid4->toString());
-        $allowed_extensions = config('upload.allow_ext');
-        $currentDir = isset($_REQUEST['dir']) ? $_REQUEST['dir'] : config('upload.base_path');
-        $topic = $request->input('topic');
-        $fileName = 'file';
-        $file = $request->file($fileName);
-
-        $extension = $file->getClientOriginalExtension();
-
-        $urlPath = $uploadService->getUploadUrlPath(config('upload.server.local'));
-
-        $savePath = rtrim($currentDir,'/') .  rtrim($urlPath,'/');
-
-        if ($extension && !in_array(strtolower($extension), $allowed_extensions)) {
-            return response()->json(['error' => 'You may only upload '], 406);
-        }
-        $allowSize = config('upload.size');
-        if (!in_array($topic, array_keys($allowSize))) {
-            return response()->json(['error' => 'topic not support!'], 406);
-        }
-        is_dir($savePath) || mkdir($savePath, 0700, true);
-        $saveName = $uploadService->getUploadSaveName($extension);
-        $file->move($savePath,$saveName);
-        $fullName = $uploadService->getFullPath($savePath,$saveName);
-        $sizes = $allowSize[$topic];
-        if ($sizes) {
-            foreach ($sizes as $size) {
-                list($width, $height) = $size;
-                list($picwidth, $picheight) = getimagesize($fullName);
-                list($nowWidth, $nowHeight) = $uploadService->reSize($picwidth, $picheight, $width, 0);
-                $reSizeSaveName = $uuid . '.' . $width . 'x0.' . $extension;
-                $reSizeName = $savePath . $reSizeSaveName;
-                Image::make($fullName)->resize($nowWidth, $nowHeight)->save($reSizeName);
-            }
-
-        }
-
+        $data = $uploadService->image($request);
         $fileInfo = array(
             'result' => true,
-            'path' => str_replace(public_path(), '', ($fullName)),
+            'path' => $data,
         );
-        return $fileInfo;
+        if (config('upload.callback')) {
+            $callback = config('upload.callback');
+            return $callback($fileInfo);
+        }else{
+            return json_encode($fileInfo);
+        }
     }
 
     function file(Request $request, UploadService $uploadService)

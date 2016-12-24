@@ -15,5 +15,8 @@
         "psr-4": {
             "EzApp\\Upload\\":"src"
         }
+    },
+    "require-dev": {
+        "laravel/framework": "^5.3"
     }
 }
