@@ -19,11 +19,7 @@ class UploadController extends  Controller
 
     function image(Request $request , UploadService $uploadService)
     {
-        $data = $uploadService->image($request);
-        $fileInfo = array(
-            'result' => true,
-            'path' => $data,
-        );
+        $fileInfo = $uploadService->image($request);
         if (config('upload.callback')) {
             $callback = config('upload.callback');
             return $callback($fileInfo);
