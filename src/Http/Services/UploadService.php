@@ -35,6 +35,7 @@ class UploadService
             return $fileInfo;
         }
         $allowSize = config('upload.size');
+
         if (!in_array($topic, array_keys($allowSize))) {
             $fileInfo = array(
                 'result' => false,
