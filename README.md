@@ -1,4 +1,5 @@
 # laravel_upload
+composer require ezapp/upload
 app.php add next line
 
 > Intervention\Image\ImageServiceProvider::class
