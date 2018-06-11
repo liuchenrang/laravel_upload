@@ -40,7 +40,7 @@ class UploadController extends  Controller
         is_dir($savePath) || mkdir($savePath, 0700, true);
 
         $extension = $file->getClientOriginalExtension();
-        $saveName = $uploadService->getUploadSaveName($extension);
+        $saveName = $uploadService->getUploadSaveName($extension, '');
 
         $fullName = $uploadService->getFullPath($savePath,$saveName);
 
